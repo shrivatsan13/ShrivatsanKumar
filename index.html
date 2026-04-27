@@ -1,193 +1,1554 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Shrivatsan Kumar - Premium Resume</title>
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,600|Saira+Extra+Condensed:700&display=swap" rel="stylesheet">
-  <!-- Font Awesome for icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-  <!-- Link to CSS -->
-  <link rel="stylesheet" href="style.css" />
-  <style>
-    /* Enable smooth scrolling */
-    html { scroll-behavior: smooth; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shrivatsan Kumar | Robotics & Automation Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;600;800&family=Rajdhani:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-primary: #0a0d0f;
+  --bg-secondary: #111418;
+  --bg-tertiary: #161b22;
+  --bg-card: #1a2030;
+  --neon-green: #00ff88;
+  --neon-cyan: #00d4ff;
+  --neon-amber: #ffaa00;
+  --neon-red: #ff4444;
+  --accent: #00ff88;
+  --text-primary: #e6edf3;
+  --text-secondary: #8b949e;
+  --text-muted: #484f58;
+  --border: #21262d;
+  --border-accent: #00ff8833;
+  --mono: 'Share Tech Mono', monospace;
+  --display: 'Orbitron', sans-serif;
+  --body: 'Rajdhani', sans-serif;
+  --sidebar-w: 64px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--body);
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ── CIRCUIT BACKGROUND ── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0,255,136,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,255,136,0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── SIDEBAR ── */
+.sidebar {
+  position: fixed;
+  left: 0; top: 0; bottom: 0;
+  width: var(--sidebar-w);
+  background: var(--bg-secondary);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0;
+  z-index: 100;
+  gap: 8px;
+}
+
+.sidebar-logo {
+  font-family: var(--display);
+  font-size: 10px;
+  font-weight: 800;
+  color: var(--neon-green);
+  letter-spacing: 2px;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  padding: 16px 0;
+  text-transform: uppercase;
+}
+
+.sidebar-divider {
+  width: 30px;
+  height: 1px;
+  background: var(--border);
+  margin: 8px 0;
+}
+
+.nav-icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+  color: var(--text-muted);
+  font-size: 18px;
+  text-decoration: none;
+  border: 1px solid transparent;
+}
+
+.nav-icon:hover, .nav-icon.active {
+  color: var(--neon-green);
+  background: rgba(0,255,136,0.08);
+  border-color: rgba(0,255,136,0.2);
+}
+
+.nav-icon::after {
+  content: attr(data-tip);
+  position: absolute;
+  left: 54px;
+  background: var(--bg-card);
+  color: var(--text-primary);
+  font-family: var(--mono);
+  font-size: 11px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+
+.nav-icon:hover::after { opacity: 1; }
+
+/* ── MAIN CONTENT ── */
+main {
+  margin-left: var(--sidebar-w);
+  position: relative;
+  z-index: 1;
+}
+
+/* ── SECTION BASE ── */
+section {
+  min-height: 100vh;
+  padding: 80px 60px 80px 60px;
+  position: relative;
+}
+
+.section-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--neon-green);
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.section-label::after {
+  content: '';
+  flex: 1;
+  max-width: 60px;
+  height: 1px;
+  background: var(--neon-green);
+  opacity: 0.4;
+}
+
+.section-title {
+  font-family: var(--display);
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 48px;
+  letter-spacing: 1px;
+}
+
+/* ── HERO ── */
+#hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 0 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-bg-circuit {
+  position: absolute;
+  right: -100px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 600px;
+  height: 600px;
+  opacity: 0.04;
+}
+
+.hero-content { max-width: 800px; position: relative; z-index: 1; }
+
+.hero-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(0,255,136,0.05);
+  border: 1px solid rgba(0,255,136,0.2);
+  border-radius: 2px;
+  padding: 6px 14px;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--neon-green);
+  margin-bottom: 24px;
+  letter-spacing: 2px;
+}
+
+.status-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--neon-green);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(0,255,136,0.4); }
+  50% { opacity: 0.7; box-shadow: 0 0 0 6px rgba(0,255,136,0); }
+}
+
+.hero-name {
+  font-family: var(--display);
+  font-size: clamp(42px, 7vw, 80px);
+  font-weight: 800;
+  line-height: 1.05;
+  color: var(--text-primary);
+  letter-spacing: -1px;
+  margin-bottom: 6px;
+}
+
+.hero-name span {
+  color: var(--neon-green);
+  position: relative;
+}
+
+.hero-title {
+  font-family: var(--mono);
+  font-size: clamp(14px, 2vw, 18px);
+  color: var(--text-secondary);
+  margin-bottom: 32px;
+  letter-spacing: 2px;
+}
+
+.hero-title .cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1.1em;
+  background: var(--neon-green);
+  margin-left: 4px;
+  vertical-align: text-bottom;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+.hero-summary {
+  font-size: 17px;
+  color: var(--text-secondary);
+  max-width: 620px;
+  line-height: 1.8;
+  margin-bottom: 48px;
+  font-weight: 300;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 28px;
+  background: var(--neon-green);
+  color: #000;
+  font-family: var(--display);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: all 0.2s;
+}
+
+.btn-primary:hover {
+  background: #00cc6a;
+  transform: translateY(-2px);
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 28px;
+  background: transparent;
+  color: var(--neon-green);
+  font-family: var(--display);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid rgba(0,255,136,0.4);
+  border-radius: 2px;
+  transition: all 0.2s;
+}
+
+.btn-ghost:hover {
+  background: rgba(0,255,136,0.08);
+  border-color: var(--neon-green);
+  transform: translateY(-2px);
+}
+
+.hero-stats {
+  display: flex;
+  gap: 40px;
+  margin-top: 60px;
+  padding-top: 40px;
+  border-top: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+
+.stat-item { text-align: left; }
+
+.stat-value {
+  font-family: var(--display);
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--neon-green);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.stat-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* ── ABOUT/TERMINAL ── */
+#about { background: var(--bg-secondary); }
+
+.terminal {
+  background: #0d1117;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  max-width: 900px;
+  font-family: var(--mono);
+}
+
+.terminal-bar {
+  background: var(--bg-tertiary);
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid var(--border);
+}
+
+.terminal-dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+}
+
+.td-red { background: #ff5f57; }
+.td-yellow { background: #febc2e; }
+.td-green { background: #28c840; }
+
+.terminal-title {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-left: auto;
+  letter-spacing: 1px;
+}
+
+.terminal-body {
+  padding: 24px;
+  line-height: 2;
+}
+
+.t-line { display: flex; gap: 12px; margin-bottom: 4px; }
+.t-prompt { color: var(--neon-green); }
+.t-cmd { color: var(--neon-cyan); }
+.t-comment { color: var(--text-muted); }
+.t-output { color: var(--text-secondary); padding-left: 24px; }
+.t-key { color: var(--neon-amber); }
+.t-val { color: var(--text-primary); }
+.t-blank { height: 12px; }
+
+/* ── SKILLS ── */
+#skills { background: var(--bg-primary); }
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+.skill-category {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.3s;
+}
+
+.skill-category::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 3px;
+  height: 100%;
+  background: var(--cat-color, var(--neon-green));
+}
+
+.skill-category:hover {
+  border-color: var(--border-accent);
+}
+
+.skill-cat-icon {
+  font-size: 24px;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.skill-cat-title {
+  font-family: var(--display);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--cat-color, var(--neon-green));
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skill-tag {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-secondary);
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  padding: 4px 10px;
+  transition: all 0.2s;
+}
+
+.skill-tag:hover {
+  color: var(--text-primary);
+  border-color: rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.07);
+}
+
+/* Skill bars */
+.skill-bar-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin-top: 32px;
+}
+
+.skill-bar-item { margin-bottom: 12px; }
+
+.skill-bar-label {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.skill-bar-label span:last-child { color: var(--neon-green); }
+
+.skill-bar-track {
+  height: 4px;
+  background: var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.skill-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--neon-green), var(--neon-cyan));
+  border-radius: 2px;
+  width: 0;
+  transition: width 1.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ── EXPERIENCE ── */
+#experience { background: var(--bg-secondary); }
+
+.timeline { position: relative; }
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 24px;
+  top: 0; bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--neon-green), transparent);
+  opacity: 0.3;
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 72px;
+  margin-bottom: 48px;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: 15px;
+  top: 6px;
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  border: 2px solid var(--neon-green);
+  background: var(--bg-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.timeline-dot::after {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--neon-green);
+}
+
+.exp-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 28px;
+  transition: border-color 0.3s;
+}
+
+.exp-card:hover { border-color: rgba(0,255,136,0.3); }
+
+.exp-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 4px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.exp-title {
+  font-family: var(--display);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: 1px;
+}
+
+.exp-date {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--neon-green);
+  background: rgba(0,255,136,0.08);
+  border: 1px solid rgba(0,255,136,0.2);
+  padding: 3px 10px;
+  border-radius: 2px;
+  white-space: nowrap;
+}
+
+.exp-company {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--neon-cyan);
+  margin-bottom: 16px;
+}
+
+.exp-bullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.exp-bullets li {
+  font-size: 15px;
+  color: var(--text-secondary);
+  padding-left: 20px;
+  position: relative;
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+.exp-bullets li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--neon-green);
+  font-size: 12px;
+}
+
+/* ── PROJECTS ── */
+#projects { background: var(--bg-primary); }
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 24px;
+}
+
+.project-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+  transition: transform 0.3s, border-color 0.3s;
+  position: relative;
+}
+
+.project-card::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--proj-color, var(--neon-green)), transparent);
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(0,255,136,0.3);
+}
+
+.project-header {
+  padding: 24px 24px 16px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.project-icon {
+  width: 44px; height: 44px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  flex-shrink: 0;
+  background: rgba(0,255,136,0.08);
+  border: 1px solid rgba(0,255,136,0.2);
+}
+
+.project-meta { flex: 1; }
+
+.project-year {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--text-muted);
+  letter-spacing: 2px;
+  margin-bottom: 4px;
+}
+
+.project-title {
+  font-family: var(--display);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: 1px;
+  line-height: 1.3;
+}
+
+.project-body {
+  padding: 0 24px 24px;
+}
+
+.project-desc {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 16px;
+  font-weight: 300;
+}
+
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tech-badge {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--neon-cyan);
+  background: rgba(0,212,255,0.06);
+  border: 1px solid rgba(0,212,255,0.2);
+  border-radius: 2px;
+  padding: 3px 8px;
+  letter-spacing: 1px;
+}
+
+/* ── EDUCATION ── */
+#education { background: var(--bg-secondary); }
+
+.edu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.edu-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 28px;
+  position: relative;
+}
+
+.edu-degree {
+  font-family: var(--display);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: 1px;
+  margin-bottom: 6px;
+}
+
+.edu-school {
+  font-size: 14px;
+  color: var(--neon-cyan);
+  font-family: var(--mono);
+  margin-bottom: 4px;
+}
+
+.edu-date {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+.edu-gpa {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(0,255,136,0.05);
+  border: 1px solid rgba(0,255,136,0.2);
+  padding: 4px 12px;
+  border-radius: 2px;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--neon-green);
+}
+
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+.cert-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: border-color 0.2s;
+}
+
+.cert-item:hover { border-color: rgba(0,255,136,0.3); }
+
+.cert-icon {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: rgba(255,170,0,0.1);
+  border: 1px solid rgba(255,170,0,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.cert-name {
+  font-size: 13px;
+  color: var(--text-primary);
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+
+.cert-org {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+/* ── CONTACT ── */
+#contact {
+  background: var(--bg-primary);
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+  max-width: 900px;
+}
+
+.contact-intro {
+  font-size: 18px;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  font-weight: 300;
+  margin-bottom: 32px;
+}
+
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-family: var(--mono);
+  font-size: 13px;
+  transition: all 0.2s;
+  letter-spacing: 1px;
+}
+
+.contact-link:hover {
+  border-color: rgba(0,255,136,0.3);
+  color: var(--neon-green);
+  background: rgba(0,255,136,0.04);
+}
+
+.contact-link-icon {
+  font-size: 16px;
+  width: 24px;
+  text-align: center;
+}
+
+/* ── FOOTER ── */
+footer {
+  margin-left: 0;
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border);
+  padding: 24px 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 0;
+}
+
+.footer-text {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  letter-spacing: 2px;
+}
+
+.footer-green { color: var(--neon-green); }
+
+/* ── SECTION DIVIDER ── */
+.hud-divider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 48px;
+  margin-top: -24px;
+}
+
+.hud-line { flex: 1; height: 1px; background: var(--border); }
+.hud-diamond {
+  width: 8px; height: 8px;
+  background: var(--neon-green);
+  transform: rotate(45deg);
+  opacity: 0.4;
+}
+
+/* ── SCROLL ANIMATIONS ── */
+.fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: var(--neon-green); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  :root { --sidebar-w: 0px; }
+  .sidebar { display: none; }
+  section { padding: 60px 24px; }
+  #hero { padding: 60px 24px; }
+  .contact-grid { grid-template-columns: 1fr; gap: 32px; }
+  footer { padding: 20px 24px; }
+}
+
+/* ── HUD CORNER DECORATION ── */
+.hud-corner {
+  position: absolute;
+  width: 20px; height: 20px;
+  opacity: 0.4;
+}
+.hud-corner.tl { top: 20px; left: 20px; border-top: 2px solid var(--neon-green); border-left: 2px solid var(--neon-green); }
+.hud-corner.tr { top: 20px; right: 20px; border-top: 2px solid var(--neon-green); border-right: 2px solid var(--neon-green); }
+.hud-corner.bl { bottom: 20px; left: 20px; border-bottom: 2px solid var(--neon-green); border-left: 2px solid var(--neon-green); }
+.hud-corner.br { bottom: 20px; right: 20px; border-bottom: 2px solid var(--neon-green); border-right: 2px solid var(--neon-green); }
+
+.awards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.award-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.award-icon { font-size: 20px; }
+
+.award-name {
+  font-size: 13px;
+  color: var(--text-primary);
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+
+.award-date {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--text-muted);
+}
+</style>
 </head>
-<body id="page-top">
-  <!-- Header -->
-  <header class="header">
-    <div class="container header-container">
-      <h1 class="header-title">Shrivatsan Kumar</h1>
-      <p class="header-tagline">Robotics & Automation Engineer | Innovator</p>
-      <div class="contact-info">
-        <span><i class="fas fa-envelope"></i> <a href="mailto:friendship19.4.99@gmail.com">friendship19.4.99@gmail.com</a></span>
-        <span><i class="fas fa-phone-alt"></i> +91 6381345441</span>
+<body>
+
+<!-- SIDEBAR -->
+<nav class="sidebar">
+  <div class="sidebar-logo">SK</div>
+  <div class="sidebar-divider"></div>
+  <a class="nav-icon" href="#hero" data-tip="Home">⌂</a>
+  <a class="nav-icon" href="#about" data-tip="About">◈</a>
+  <a class="nav-icon" href="#skills" data-tip="Skills">⚙</a>
+  <a class="nav-icon" href="#experience" data-tip="Experience">◉</a>
+  <a class="nav-icon" href="#projects" data-tip="Projects">◆</a>
+  <a class="nav-icon" href="#education" data-tip="Education">◑</a>
+  <a class="nav-icon" href="#contact" data-tip="Contact">✉</a>
+</nav>
+
+<main>
+
+<!-- ══════════════════════ HERO ══════════════════════ -->
+<section id="hero">
+  <div class="hud-corner tl"></div>
+  <div class="hud-corner tr"></div>
+
+  <!-- Circuit SVG background -->
+  <svg class="hero-bg-circuit" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="250" cy="250" r="240" stroke="#00ff88" stroke-width="0.5"/>
+    <circle cx="250" cy="250" r="180" stroke="#00ff88" stroke-width="0.5"/>
+    <circle cx="250" cy="250" r="120" stroke="#00ff88" stroke-width="0.5"/>
+    <circle cx="250" cy="250" r="60" stroke="#00ff88" stroke-width="0.5"/>
+    <line x1="250" y1="10" x2="250" y2="490" stroke="#00ff88" stroke-width="0.5"/>
+    <line x1="10" y1="250" x2="490" y2="250" stroke="#00ff88" stroke-width="0.5"/>
+    <line x1="80" y1="80" x2="420" y2="420" stroke="#00ff88" stroke-width="0.5"/>
+    <line x1="420" y1="80" x2="80" y2="420" stroke="#00ff88" stroke-width="0.5"/>
+    <rect x="220" y="220" width="60" height="60" stroke="#00ff88" stroke-width="1" transform="rotate(45 250 250)"/>
+    <rect x="200" y="200" width="100" height="100" stroke="#00ff88" stroke-width="0.5"/>
+    <circle cx="250" cy="10" r="4" fill="#00ff88"/>
+    <circle cx="250" cy="490" r="4" fill="#00ff88"/>
+    <circle cx="10" cy="250" r="4" fill="#00ff88"/>
+    <circle cx="490" cy="250" r="4" fill="#00ff88"/>
+    <circle cx="80" cy="80" r="4" fill="#00ff88"/>
+    <circle cx="420" cy="80" r="4" fill="#00ff88"/>
+    <circle cx="80" cy="420" r="4" fill="#00ff88"/>
+    <circle cx="420" cy="420" r="4" fill="#00ff88"/>
+    <text x="252" y="254" font-family="Share Tech Mono" font-size="10" fill="#00ff88" opacity="0.6">INIT</text>
+  </svg>
+
+  <div class="hero-content">
+    <div class="hero-status">
+      <div class="status-dot"></div>
+      AVAILABLE FOR OPPORTUNITIES
+    </div>
+
+    <h1 class="hero-name">
+      SHRIVATSAN<br>
+      <span>KUMAR</span>
+    </h1>
+
+    <p class="hero-title">
+      <span id="typed-title"></span><span class="cursor"></span>
+    </p>
+
+    <p class="hero-summary">
+      Robotics & Automation Engineer with hands-on floor experience at Foxconn on the iPhone 16 production line. Specialising in fault diagnosis, embedded systems, and building autonomous robots from scratch.
+    </p>
+
+    <div class="hero-cta">
+      <a href="#projects" class="btn-primary">▶ View Projects</a>
+      <a href="#contact" class="btn-ghost">◈ Get In Touch</a>
+    </div>
+
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-value">6+</div>
+        <div class="stat-label">Months @ Foxconn</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value">3</div>
+        <div class="stat-label">Key Projects</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value">3</div>
+        <div class="stat-label">Awards Won</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value">7.3</div>
+        <div class="stat-label">GPA / 10.0</div>
       </div>
     </div>
-  </header>
+  </div>
+</section>
 
-  <!-- Navigation -->
-  <nav class="navbar">
-    <div class="container nav-container">
-      <ul class="nav-links">
-        <li><a href="#objective">Objective</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#certifications">Certifications</a></li>
-        <li><a href="#personal">Personal</a></li>
-        <li><a href="#leadership">Leadership</a></li>
-      </ul>
+<!-- ══════════════════════ ABOUT ══════════════════════ -->
+<section id="about">
+  <div class="section-label">01 &mdash; About</div>
+  <h2 class="section-title">System Profile</h2>
+
+  <div class="terminal fade-up">
+    <div class="terminal-bar">
+      <div class="terminal-dot td-red"></div>
+      <div class="terminal-dot td-yellow"></div>
+      <div class="terminal-dot td-green"></div>
+      <span class="terminal-title">shrivatsan@portfolio:~$</span>
     </div>
-  </nav>
+    <div class="terminal-body">
+      <div class="t-line"><span class="t-prompt">$</span><span class="t-cmd">cat profile.json</span></div>
+      <div class="t-blank"></div>
+      <div class="t-line"><span class="t-output"><span class="t-key">"name":</span> <span class="t-val">"Shrivatsan Kumar"</span>,</span></div>
+      <div class="t-line"><span class="t-output"><span class="t-key">"role":</span> <span class="t-val">"Robotics & Automation Engineer"</span>,</span></div>
+      <div class="t-line"><span class="t-output"><span class="t-key">"location":</span> <span class="t-val">"Chennai, Tamil Nadu, India"</span>,</span></div>
+      <div class="t-line"><span class="t-output"><span class="t-key">"contact":</span> <span class="t-val">"+91 6381345441"</span>,</span></div>
+      <div class="t-line"><span class="t-output"><span class="t-key">"email":</span> <span class="t-val">"shrivatsan1312.sk@gmail.com"</span>,</span></div>
+      <div class="t-blank"></div>
+      <div class="t-line"><span class="t-output"><span class="t-key">"summary":</span> [</span></div>
+      <div class="t-line"><span class="t-output" style="padding-left:48px"><span class="t-val">"Six months on the iPhone 16 production floor at Foxconn,"</span></span></div>
+      <div class="t-line"><span class="t-output" style="padding-left:48px"><span class="t-val">"hands-on OQC and UMP stages under real shift pressure,"</span></span></div>
+      <div class="t-line"><span class="t-output" style="padding-left:48px"><span class="t-val">"self-built robots: gesture glove, retail nav bot, biometric ignition,"</span></span></div>
+      <div class="t-line"><span class="t-output" style="padding-left:48px"><span class="t-val">"thrives where things break and need proper fixing."</span></span></div>
+      <div class="t-line"><span class="t-output">],</span></div>
+      <div class="t-blank"></div>
+      <div class="t-line"><span class="t-output"><span class="t-key">"core_languages":</span> <span class="t-val">["Python", "Embedded C/C++", "Arduino IDE"]</span>,</span></div>
+      <div class="t-line"><span class="t-output"><span class="t-key">"platforms":</span> <span class="t-val">["Arduino", "ESP32", "PLC Systems", "LoRa"]</span>,</span></div>
+      <div class="t-line"><span class="t-output"><span class="t-key">"status":</span> <span style="color:var(--neon-green)">"open_to_opportunities"</span></span></div>
+      <div class="t-line"><span class="t-output">}</span></div>
+      <div class="t-blank"></div>
+      <div class="t-line"><span class="t-prompt">$</span><span class="t-comment"> # All systems operational ✓</span></div>
+    </div>
+  </div>
+</section>
 
-  <!-- Main Content -->
-  <main class="main-content container">
-    <!-- Career Objective Section -->
-    <section id="objective" class="resume-section">
-      <h2 class="section-title">Career Objective</h2>
-      <p class="section-text">
-        Motivated final-year Robotics and Automation student with strong analytical skills and a passion for operational efficiency. Seeking to innovate and implement solutions that contribute to organizational growth.
+<!-- ══════════════════════ SKILLS ══════════════════════ -->
+<section id="skills">
+  <div class="section-label">02 &mdash; Skills</div>
+  <h2 class="section-title">Technical Arsenal</h2>
+
+  <div class="skills-grid">
+    <div class="skill-category fade-up" style="--cat-color: #00ff88;">
+      <span class="skill-cat-icon">⚙</span>
+      <div class="skill-cat-title">Automation & Control</div>
+      <div class="skill-tags">
+        <span class="skill-tag">PLC Programming</span>
+        <span class="skill-tag">Industrial Control</span>
+        <span class="skill-tag">Automation Debug</span>
+        <span class="skill-tag">Process Optimization</span>
+        <span class="skill-tag">Machine Calibration</span>
+        <span class="skill-tag">Preventive Maintenance</span>
+        <span class="skill-tag">OEE Monitoring</span>
+      </div>
+    </div>
+
+    <div class="skill-category fade-up" style="--cat-color: #00d4ff;">
+      <span class="skill-cat-icon">🤖</span>
+      <div class="skill-cat-title">Robotics & Embedded</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Arduino</span>
+        <span class="skill-tag">ESP32</span>
+        <span class="skill-tag">Robotic Arm Control</span>
+        <span class="skill-tag">Mecanum Drive</span>
+        <span class="skill-tag">Sensor Integration</span>
+        <span class="skill-tag">Actuator Control</span>
+        <span class="skill-tag">Autonomous Navigation</span>
+      </div>
+    </div>
+
+    <div class="skill-category fade-up" style="--cat-color: #ffaa00;">
+      <span class="skill-cat-icon">💻</span>
+      <div class="skill-cat-title">Programming</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">Pandas / NumPy</span>
+        <span class="skill-tag">Jupyter</span>
+        <span class="skill-tag">Embedded C</span>
+        <span class="skill-tag">C++</span>
+        <span class="skill-tag">Arduino IDE</span>
+      </div>
+    </div>
+
+    <div class="skill-category fade-up" style="--cat-color: #ff4488;">
+      <span class="skill-cat-icon">📡</span>
+      <div class="skill-cat-title">IoT & Communication</div>
+      <div class="skill-tags">
+        <span class="skill-tag">LoRa Transceivers</span>
+        <span class="skill-tag">Wireless Sensor Nets</span>
+        <span class="skill-tag">Barcode Integration</span>
+        <span class="skill-tag">IoT System Design</span>
+      </div>
+    </div>
+
+    <div class="skill-category fade-up" style="--cat-color: #a855f7;">
+      <span class="skill-cat-icon">🧠</span>
+      <div class="skill-cat-title">Machine Learning</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Gesture Classification</span>
+        <span class="skill-tag">Signal Processing</span>
+        <span class="skill-tag">ML Pattern Recognition</span>
+      </div>
+    </div>
+
+    <div class="skill-category fade-up" style="--cat-color: #22d3ee;">
+      <span class="skill-cat-icon">🏭</span>
+      <div class="skill-cat-title">Manufacturing</div>
+      <div class="skill-tags">
+        <span class="skill-tag">OQC</span>
+        <span class="skill-tag">UMP</span>
+        <span class="skill-tag">High-Volume Assembly</span>
+        <span class="skill-tag">Quality Assurance</span>
+        <span class="skill-tag">ISO Safety</span>
+        <span class="skill-tag">AutoCAD</span>
+        <span class="skill-tag">SolidWorks</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="skill-bar-section">
+    <div>
+      <div class="skill-bar-item fade-up"><div class="skill-bar-label"><span>PLC & Industrial Control</span><span>90%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-w="90"></div></div></div>
+      <div class="skill-bar-item fade-up"><div class="skill-bar-label"><span>Arduino / ESP32</span><span>88%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-w="88"></div></div></div>
+      <div class="skill-bar-item fade-up"><div class="skill-bar-label"><span>Python</span><span>82%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-w="82"></div></div></div>
+      <div class="skill-bar-item fade-up"><div class="skill-bar-label"><span>Embedded C/C++</span><span>85%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-w="85"></div></div></div>
+    </div>
+    <div>
+      <div class="skill-bar-item fade-up"><div class="skill-bar-label"><span>Fault Diagnosis</span><span>92%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-w="92"></div></div></div>
+      <div class="skill-bar-item fade-up"><div class="skill-bar-label"><span>Sensor Integration</span><span>87%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-w="87"></div></div></div>
+      <div class="skill-bar-item fade-up"><div class="skill-bar-label"><span>LoRa / IoT</span><span>78%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-w="78"></div></div></div>
+      <div class="skill-bar-item fade-up"><div class="skill-bar-label"><span>AutoCAD / SolidWorks</span><span>72%</span></div><div class="skill-bar-track"><div class="skill-bar-fill" data-w="72"></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ EXPERIENCE ══════════════════════ -->
+<section id="experience">
+  <div class="section-label">03 &mdash; Experience</div>
+  <h2 class="section-title">Mission Log</h2>
+
+  <div class="timeline">
+
+    <div class="timeline-item fade-up">
+      <div class="timeline-dot"></div>
+      <div class="exp-card">
+        <div class="exp-header">
+          <div class="exp-title">Automation & Debugging Engineer</div>
+          <div class="exp-date">APR 2025 &mdash; SEP 2025</div>
+        </div>
+        <div class="exp-company">◈ Foxconn Technology Group · Chennai, India</div>
+        <ul class="exp-bullets">
+          <li>Assigned to OQC and UMP checkpoints on the iPhone 16 assembly line — two sections with heavy machine usage and zero tolerance for unplanned stops during a shift.</li>
+          <li>Core role was fault diagnosis: tracing sensor drift, actuator timing issues, and communication failures between components — not just clearing alarms and moving on.</li>
+          <li>Monitored UPH figures each shift and made targeted adjustments to motion timing and automation sequences; even incremental cycle parameter changes translated into meaningful daily output gains.</li>
+          <li>Handled installation, calibration, and routine maintenance of robotic arms, conveyor systems, vision inspection cameras, and test fixtures during changeover windows.</li>
+          <li>Started logging fault recurrence data for repeat-offender machines — identifying those patterns eliminated several failures that had been eating into shift time for weeks.</li>
+          <li>Participated in process review sessions with engineers and quality leads, sharing floor-level observations that surfaced issues invisible in upstream metrics.</li>
+          <li>Strictly followed lockout/tagout and equipment clearance procedures — the safety culture was strict and that discipline stuck.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="timeline-item fade-up">
+      <div class="timeline-dot"></div>
+      <div class="exp-card">
+        <div class="exp-header">
+          <div class="exp-title">Robotics Engineering Intern</div>
+          <div class="exp-date">JUN 2023 &mdash; AUG 2023</div>
+        </div>
+        <div class="exp-company">◈ Kaashiv Infotech · Chennai, India</div>
+        <ul class="exp-bullets">
+          <li>Built multiple Arduino-based robots from component level — line followers, sensor-triggered motion setups — with deep dives into hardware-layer versus software-layer failure modes.</li>
+          <li>Hardware interfacing and live troubleshooting proved the most practically valuable part of the internship.</li>
+          <li>Attended sessions on IoT and industrial automation that connected embedded work to larger production systems.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="timeline-item fade-up">
+      <div class="timeline-dot"></div>
+      <div class="exp-card">
+        <div class="exp-header">
+          <div class="exp-title">Robotics Engineering Intern</div>
+          <div class="exp-date">JAN 2023 &mdash; FEB 2023</div>
+        </div>
+        <div class="exp-company">◈ Kodacy Space Academy · Remote</div>
+        <ul class="exp-bullets">
+          <li>Worked on autonomous navigation simulations using Arduino and ESP32 — making raw sensor readings usable for real-time movement decisions through heavy filtering and logic testing.</li>
+          <li>Collaborated asynchronously with a small remote team, learning to communicate clearly about system states across shared documentation.</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════ PROJECTS ══════════════════════ -->
+<section id="projects">
+  <div class="section-label">04 &mdash; Projects</div>
+  <h2 class="section-title">Build Registry</h2>
+
+  <div class="projects-grid">
+
+    <div class="project-card fade-up" style="--proj-color: #00d4ff;">
+      <div class="project-header">
+        <div class="project-icon">🤖</div>
+        <div class="project-meta">
+          <div class="project-year">// 2024</div>
+          <div class="project-title">Inventory Management & Shopping Assistance Robot</div>
+        </div>
+      </div>
+      <div class="project-body">
+        <p class="project-desc">
+          Autonomous retail robot navigating omnidirectionally via mecanum wheels, avoiding obstacles with ultrasonic sensors, and displaying product availability on an onboard touchscreen. LoRa-based communication handles inventory tracking and auto-billing. The wireless layer was the hardest part to stabilise when moving between shelf zones.
+        </p>
+        <div class="project-tech">
+          <span class="tech-badge">Arduino</span>
+          <span class="tech-badge">Mecanum Drive</span>
+          <span class="tech-badge">LoRa</span>
+          <span class="tech-badge">Ultrasonic Sensors</span>
+          <span class="tech-badge">Barcode Scanner</span>
+          <span class="tech-badge">Touchscreen UI</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card fade-up" style="--proj-color: #ffaa00;">
+      <div class="project-header">
+        <div class="project-icon">🔐</div>
+        <div class="project-meta">
+          <div class="project-year">// 2023</div>
+          <div class="project-title">Biometric Vehicle Access Control System</div>
+        </div>
+      </div>
+      <div class="project-body">
+        <p class="project-desc">
+          Vehicle ignition system requiring fingerprint verification and valid license check before engine start — addressing unauthorised driving at the hardware level, not through policy. Went through several revision rounds on the validation logic to get response time reliable enough for legitimate users without letting unauthorised attempts through.
+        </p>
+        <div class="project-tech">
+          <span class="tech-badge">ESP32</span>
+          <span class="tech-badge">Fingerprint Sensor</span>
+          <span class="tech-badge">Embedded C</span>
+          <span class="tech-badge">Hardware Validation</span>
+          <span class="tech-badge">Access Control</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-card fade-up" style="--proj-color: #a855f7;">
+      <div class="project-header">
+        <div class="project-icon">🤲</div>
+        <div class="project-meta">
+          <div class="project-year">// 2022</div>
+          <div class="project-title">Wearable Gesture-to-Speech / Text Converter</div>
+        </div>
+      </div>
+      <div class="project-body">
+        <p class="project-desc">
+          Sensor-embedded glove using flex sensors and Arduino Nano that reads finger positions in real time, maps them to ASL characters and words, and outputs as synthesised speech or on-screen text. Getting the ML classifier to distinguish reliably between similar hand shapes was the core challenge — required extensive manual data collection and cleaning before recognition became consistent.
+        </p>
+        <div class="project-tech">
+          <span class="tech-badge">Arduino Nano</span>
+          <span class="tech-badge">Flex Sensors</span>
+          <span class="tech-badge">ML Classification</span>
+          <span class="tech-badge">ASL Recognition</span>
+          <span class="tech-badge">Speech Synthesis</span>
+          <span class="tech-badge">Python</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════ EDUCATION ══════════════════════ -->
+<section id="education">
+  <div class="section-label">05 &mdash; Education</div>
+  <h2 class="section-title">Academic Database</h2>
+
+  <div class="edu-grid">
+    <div class="edu-card fade-up">
+      <div class="edu-degree">B.E. Robotics & Automation Engineering</div>
+      <div class="edu-school">Anna University – Rajalakshmi Engineering College</div>
+      <div class="edu-date">JAN 2021 &mdash; MAY 2025 · Chennai, India</div>
+      <div class="edu-gpa">⬡ GPA: 7.30 / 10.0</div>
+      <div style="margin-top:16px;">
+        <div style="font-family:var(--mono); font-size:11px; color:var(--text-muted); margin-bottom:8px; letter-spacing:1px;">RELEVANT COURSEWORK</div>
+        <div class="skill-tags">
+          <span class="skill-tag">PLC & Industrial Control</span>
+          <span class="skill-tag">Sensors & Actuators</span>
+          <span class="skill-tag">Mechatronics</span>
+          <span class="skill-tag">Machine Learning</span>
+          <span class="skill-tag">IoT Systems</span>
+          <span class="skill-tag">Data Analytics</span>
+          <span class="skill-tag">Industrial Safety</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="font-family:var(--mono); font-size:11px; color:var(--text-muted); letter-spacing:2px; margin-bottom:16px; text-transform:uppercase;">Certifications</div>
+  <div class="cert-grid">
+    <div class="cert-item fade-up">
+      <div class="cert-icon">📊</div>
+      <div>
+        <div class="cert-name">Data Analytics for Manufacturing</div>
+        <div class="cert-org">Anna University · Aug 2024</div>
+      </div>
+    </div>
+    <div class="cert-item fade-up">
+      <div class="cert-icon">📡</div>
+      <div>
+        <div class="cert-name">Introduction to IoT</div>
+        <div class="cert-org">NPTEL · Nov 2023</div>
+      </div>
+    </div>
+    <div class="cert-item fade-up">
+      <div class="cert-icon">⚠</div>
+      <div>
+        <div class="cert-name">Industrial Safety Engineering</div>
+        <div class="cert-org">NPTEL · Dec 2022</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="awards-grid">
+    <div class="award-item fade-up">
+      <div class="award-icon">🏆</div>
+      <div>
+        <div class="award-name">Synchronix National Level Technical Presentation</div>
+        <div class="award-date">Apr 2024</div>
+      </div>
+    </div>
+    <div class="award-item fade-up">
+      <div class="award-icon">🥇</div>
+      <div>
+        <div class="award-name">IPC I-Quest Innovation Project Competition</div>
+        <div class="award-date">Apr 2023</div>
+      </div>
+    </div>
+    <div class="award-item fade-up">
+      <div class="award-icon">🎖</div>
+      <div>
+        <div class="award-name">National Level Technical Symposium</div>
+        <div class="award-date">Feb 2023</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ CONTACT ══════════════════════ -->
+<section id="contact">
+  <div class="section-label">06 &mdash; Contact</div>
+  <h2 class="section-title">Open Channel</h2>
+
+  <div class="contact-grid">
+    <div>
+      <p class="contact-intro fade-up">
+        Looking for roles in robotics, automation engineering, or embedded systems. Comfortable on the floor and in the code. If you have something interesting, let's talk.
       </p>
-    </section>
-
-    <!-- Education Section -->
-    <section id="education" class="resume-section">
-      <h2 class="section-title">Education</h2>
-      <div class="resume-item">
-        <h3 class="item-title">B.E. in Robotics and Automation</h3>
-        <p class="item-institution">Rajalakshmi Engineering College, Chennai</p>
-        <p class="item-date">Oct 2021 - Present</p>
-        <p class="item-details">CGPA: 7.44 (Till 7th Semester)</p>
-      </div>
-      <div class="resume-item">
-        <h3 class="item-title">Higher Secondary Qualification</h3>
-        <p class="item-institution">Modern Senior Secondary School, Nanganallur, Chennai</p>
-        <p class="item-date">Jun 2020 - May 2021</p>
-        <p class="item-details">Percentage: 69.6%</p>
-      </div>
-      <div class="resume-item">
-        <h3 class="item-title">Secondary Qualification</h3>
-        <p class="item-institution">Modern Senior Secondary School, Thandalam, Chennai</p>
-        <p class="item-date">Jun 2018 - Mar 2019</p>
-        <p class="item-details">Percentage: 72.4%</p>
-      </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="resume-section">
-      <h2 class="section-title">Skills</h2>
-      <ul class="skills-list">
-        <li><i class="fas fa-cube"></i> 3D Design (SolidWorks)</li>
-        <li><i class="fas fa-robot"></i> Automation Tools (UiPath Basics)</li>
-        <li><i class="fas fa-brain"></i> Machine Learning Fundamentals</li>
-        <li><i class="fas fa-code"></i> Programming: Python</li>
-        <li><i class="fas fa-users"></i> Leadership, Communication, Event Management, Technical Writing</li>
-      </ul>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience" class="resume-section">
-      <h2 class="section-title">Experience</h2>
-      <div class="resume-item">
-        <h3 class="item-title">Internship (Kodacy Space Academy)</h3>
-        <p class="item-institution">Chennai (Online)</p>
-        <p class="item-details">Worked on cutting-edge robotics projects, gaining hands-on experience in innovative technologies.</p>
-      </div>
-      <div class="resume-item">
-        <h3 class="item-title">Kaashiv Infotech</h3>
-        <p class="item-institution">Chennai</p>
-        <p class="item-details">Interned on robotics projects, developing technical skills and practical knowledge.</p>
-      </div>
-      <div class="resume-item">
-        <h3 class="item-title">TVS Training and Services Ltd</h3>
-        <p class="item-institution">Data Analytics for Manufacturing (Trainee)</p>
-        <p class="item-details">Analyzed data using Excel and Power BI to improve operational efficiency.</p>
-      </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="resume-section">
-      <h2 class="section-title">Projects</h2>
-      <div class="resume-item">
-        <h3 class="item-title">Revolutionized Vehicle Access Control</h3>
-        <p class="item-details">
-          Engineered a system replacing traditional key ignitions with biometric and license verification, enhancing road safety.
-        </p>
-      </div>
-      <div class="resume-item">
-        <h3 class="item-title">Wearable Gesture-to-Speech/Text Converter</h3>
-        <p class="item-details">
-          Developed a glove that converts sign language into text and speech using flex sensors, machine learning, and Arduino Nano.
-        </p>
-      </div>
-      <div class="resume-item">
-        <h3 class="item-title">Inventory Management & Shopping Assistance Bot</h3>
-        <p class="item-details">
-          Created an autonomous bot using sensors and a touchscreen interface for real-time product tracking and automated billing.
-        </p>
-      </div>
-    </section>
-
-    <!-- Certifications Section -->
-    <section id="certifications" class="resume-section">
-      <h2 class="section-title">Certifications</h2>
-      <ul class="certifications-list">
-        <li><i class="fas fa-certificate"></i> Data Analytics for Manufacturing (Trainee)</li>
-        <li><i class="fas fa-certificate"></i> Introduction to Internet of Things (IoT)</li>
-      </ul>
-    </section>
-
-    <!-- Personal Details Section -->
-    <section id="personal" class="resume-section">
-      <h2 class="section-title">Personal Details</h2>
-      <ul class="personal-details">
-        <li><strong>Name:</strong> Shrivatsan Kumar</li>
-        <li><strong>Date of Birth:</strong> 13/12/2003</li>
-        <li><strong>Address:</strong> 29/b, Guruvayurappa Flats, Ram Nagar, 1st Main Road, Nanganallur, Chennai</li>
-        <li><strong>Languages:</strong> Tamil, English</li>
-      </ul>
-    </section>
-
-    <!-- Leadership Section -->
-    <section id="leadership" class="resume-section">
-      <h2 class="section-title">Leadership & Volunteering</h2>
-      <p class="section-text">
-        Elected Vice-President of the “Aura Club” at Rajalakshmi Engineering College and served as a core team member organizing “BOTSHA,” a national-level symposium.
-      </p>
-    </section>
-  </main>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container footer-container">
-      <p>&copy; 2025 Shrivatsan Kumar. All Rights Reserved.</p>
-      <a class="buttonDownload" href="Shrivatsan.K resume (1).pdf" download>
-        <i class="fas fa-download"></i> Download Resume
-      </a>
+      <div style="font-family:var(--mono); font-size:12px; color:var(--text-muted); letter-spacing:2px; text-transform:uppercase; margin-bottom:8px;">Location</div>
+      <div style="font-size:15px; color:var(--text-secondary); font-family:var(--mono); margin-bottom:24px;">Chennai, Tamil Nadu, India</div>
+      <div style="font-family:var(--mono); font-size:12px; color:var(--text-muted); letter-spacing:2px; text-transform:uppercase; margin-bottom:8px;">Portfolio</div>
+      <a href="https://shrivatsan13.github.io/ShrivatsanKumar" style="font-size:14px; color:var(--neon-cyan); font-family:var(--mono); text-decoration:none; letter-spacing:1px;">shrivatsan13.github.io/ShrivatsanKumar ↗</a>
     </div>
-  </footer>
 
-  <!-- JavaScript for Scroll Animations -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const sections = document.querySelectorAll('.resume-section');
-      const options = { threshold: 0.3 };
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if(entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
-          }
-        });
-      }, options);
-      sections.forEach(section => {
-        observer.observe(section);
-      });
-    });
-  </script>
+    <div>
+      <div class="contact-links">
+        <a href="tel:+916381345441" class="contact-link fade-up">
+          <span class="contact-link-icon">📞</span>
+          +91 6381345441
+        </a>
+        <a href="mailto:shrivatsan1312.sk@gmail.com" class="contact-link fade-up">
+          <span class="contact-link-icon">✉</span>
+          shrivatsan1312.sk@gmail.com
+        </a>
+        <a href="https://shrivatsan13.github.io/ShrivatsanKumar" class="contact-link fade-up">
+          <span class="contact-link-icon">◆</span>
+          shrivatsan13.github.io/ShrivatsanKumar
+        </a>
+        <a href="https://github.com/shrivatsan13" class="contact-link fade-up">
+          <span class="contact-link-icon">⌥</span>
+          github.com/shrivatsan13
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ FOOTER ══════════════════════ -->
+<footer>
+  <div class="footer-text">
+    <span class="footer-green">&copy; 2025</span> SHRIVATSAN KUMAR &nbsp;·&nbsp; ROBOTICS & AUTOMATION ENGINEER
+  </div>
+  <div class="footer-text">
+    CHENNAI, INDIA &nbsp;<span class="footer-green">◈</span>
+  </div>
+</footer>
+
+</main>
+
+<script>
+// ── TYPING ANIMATION ──
+const titles = [
+  "Robotics & Automation Engineer",
+  "Embedded Systems Developer",
+  "Industrial Automation Specialist",
+  "IoT Systems Builder",
+];
+
+let tIndex = 0, cIndex = 0, isDeleting = false;
+const el = document.getElementById('typed-title');
+
+function typeLoop() {
+  const current = titles[tIndex];
+  if (!isDeleting) {
+    el.textContent = current.slice(0, cIndex + 1);
+    cIndex++;
+    if (cIndex === current.length) {
+      setTimeout(() => { isDeleting = true; typeLoop(); }, 2200);
+      return;
+    }
+  } else {
+    el.textContent = current.slice(0, cIndex - 1);
+    cIndex--;
+    if (cIndex === 0) {
+      isDeleting = false;
+      tIndex = (tIndex + 1) % titles.length;
+    }
+  }
+  setTimeout(typeLoop, isDeleting ? 45 : 80);
+}
+typeLoop();
+
+// ── SCROLL REVEAL ──
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      const delay = e.target.dataset.delay || 0;
+      setTimeout(() => e.target.classList.add('visible'), delay * 100);
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.fade-up').forEach((el, i) => {
+  el.dataset.delay = i % 6;
+  observer.observe(el);
+});
+
+// ── SKILL BAR ANIMATION ──
+const barObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const fill = e.target;
+      const w = fill.dataset.w;
+      setTimeout(() => { fill.style.width = w + '%'; }, 300);
+      barObserver.unobserve(fill);
+    }
+  });
+}, { threshold: 0.2 });
+
+document.querySelectorAll('.skill-bar-fill').forEach(el => barObserver.observe(el));
+
+// ── ACTIVE NAV ──
+const sections = document.querySelectorAll('section');
+const navLinks = document.querySelectorAll('.nav-icon');
+
+const navObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      navLinks.forEach(l => l.classList.remove('active'));
+      const link = document.querySelector(`.nav-icon[href="#${e.target.id}"]`);
+      if (link) link.classList.add('active');
+    }
+  });
+}, { threshold: 0.4 });
+
+sections.forEach(s => navObserver.observe(s));
+</script>
 </body>
 </html>
